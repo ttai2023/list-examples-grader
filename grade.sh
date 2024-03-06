@@ -15,7 +15,7 @@ then
     cp student-submission/ListExamples.java grading-area
     cp TestListExamples.java grading-area
 else 
-    echo "There should be one file titled ListExamples.java in your repository. Do better :("
+    echo "There should be one file titled ListExamples.java in your repository, nothing else."
     exit 1
 fi
 # getting to this point

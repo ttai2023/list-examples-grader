@@ -18,4 +18,30 @@ public class TestListExamples {
     List<String> expected = Arrays.asList("a", "a", "b", "c", "d");
     assertEquals(expected, merged);
   }
+  
+  @Test(timeout = 500)
+  public void testMergeLeftEnd() {
+    List<String> left = Arrays.asList("a", "b", "c");
+    List<String> right = Arrays.asList("a", "d");
+    List<String> merged = ListExamples.merge(right, left);
+    List<String> expected = Arrays.asList("a", "a", "b", "c", "d");
+    assertEquals(expected, merged);
+  }
+
+  @Test(timeout = 500)
+  public void testMergeEmpty() {
+    List<String> left = Arrays.asList("a", "b", "c");
+    List<String> right = Arrays.asList();
+    List<String> merged = ListExamples.merge(left, right);
+    List<String> expected = Arrays.asList("a", "b", "c");
+    assertEquals(expected, merged);
+  }
+
+  @Test(timeout = 500)
+  public void testFilter(){
+    List<String> original = Arrays.asList("MOON", "sun", "moon", 
+        "stars", "planets", "Moon", "astronaut", "terri");
+    List<String> filtered = ListExamples.filter(original, new IsMoon());
+    assertEquals(Arrays.asList("MOON", "moon", "Moon"), filtered);
+  }
 }
